@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+
+<h1>Inscription</h1>
+
+<% if (message.length > 0) { %>
+<div class="alert alert-danger"><%= message %></div>
+<% } %>
+
+<form action="register" method="post">
+    <input type="text" placeholder="Pseudonyme" name="username">
+    <input type="email" placeholder="Adresse email" name="email">
+    <input type="password" placeholder="Mot de passe" name="password">
+    <input type="password" placeholder="Repéter le mot de passe" name="password_cf">
+    <button class="button">S'inscrire</button>
+</form>
+
+<% include ../partials/footer.ejs %>

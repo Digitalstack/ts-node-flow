@@ -1,0 +1,52 @@
+{
+  "name": "dealcity",
+  "version": "1.0.0",
+  "description": "javascript version of dealcity",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --watch **/*.ts --exec ts-node index.ts"
+  },
+  "author": "bonfohzaki",
+  "license": "ISC",
+  "dependencies": {
+    "@types/ejs": "^2.3.33",
+    "@types/express": "^4.0.37",
+    "@types/jquery": "^3.2.12",
+    "@types/mongoose": "^4.7.21",
+    "@types/node": "^8.0.28",
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "@types/socket.io": "^1.4.30",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.1",
+    "compression": "^1.7.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^3.0.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-validator": "^4.2.1",
+    "helmet": "^3.8.1",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
+    "node-sass-middleware": "^0.11.0",
+    "nodemailer": "^4.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "react-router": "^4.2.0",
+    "sequelize": "^4.11.3",
+    "socket.io": "^2.0.3",
+    "typescript": "^2.5.2"
+  },
+  "devDependencies": {
+    "ts-node": "^3.3.0"
+  }
+}
