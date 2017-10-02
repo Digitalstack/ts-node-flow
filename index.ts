@@ -2,6 +2,7 @@ import * as http from 'http';
 import * as debug from 'debug';
 
 import Server from './Server';
+import Socket from './app/Socketio';
 
 debug('ts-express:server');
 
@@ -44,3 +45,8 @@ function onListening(): void {
     let bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
     debug(`Listening on ${bind}`);
 }
+
+let io = require('socket.io').listen(server);
+
+Socket.initialize(io);
+

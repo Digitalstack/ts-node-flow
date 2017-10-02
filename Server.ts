@@ -17,10 +17,10 @@ let LocalStrategy = require('passport').Strategy;
 // Core/App
 import DB from "./core/DataAccess";
 import View from "./core/View";
-import Socket from "./core/Socketio";
 import PassportConfig from './core/Passport';
 import Auth from './core/Auth';
 import Routes from "./app/Routes";
+import server = require("socket.io");
 
 // Process ENV
 process.env.BASE = __dirname + '/';
@@ -39,8 +39,6 @@ class Server {
 
         // MySQL Database initialization
         DB.initialize();
-
-        Socket.initialize(this.app);
 
         // View initialization
         View.initialize(this.app, path);

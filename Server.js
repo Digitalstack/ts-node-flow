@@ -18,7 +18,6 @@ var LocalStrategy = require('passport').Strategy;
 // Core/App
 var DataAccess_1 = require("./core/DataAccess");
 var View_1 = require("./core/View");
-var Socketio_1 = require("./core/Socketio");
 var Passport_1 = require("./core/Passport");
 var Auth_1 = require("./core/Auth");
 var Routes_1 = require("./app/Routes");
@@ -33,7 +32,6 @@ var Server = (function () {
     Server.prototype.config = function () {
         // MySQL Database initialization
         DataAccess_1.default.initialize();
-        Socketio_1.default.initialize(this.app);
         // View initialization
         View_1.default.initialize(this.app, path);
         // Middleware

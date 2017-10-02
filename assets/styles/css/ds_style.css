@@ -58,4 +58,12 @@ a {
   padding-bottom: .1em;
   border-bottom: 1px #ddd solid; }
 
+.field {
+  padding: .5em 1em;
+  border-radius: .4em;
+  border: 1px #ddd solid;
+  outline: 0; }
+  .field:focus {
+    background-color: #eee; }
+
 /*# sourceMappingURL=ds_style.css.map */

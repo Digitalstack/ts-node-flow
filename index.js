@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var http = require("http");
 var debug = require("debug");
 var Server_1 = require("./Server");
+var Socketio_1 = require("./app/Socketio");
 debug('ts-express:server');
 var port = normalizePort(process.env.PORT || 4000);
 Server_1.default.set('port', port);
@@ -42,3 +43,5 @@ function onListening() {
     var bind = (typeof addr === 'string') ? "pipe " + addr : "port " + addr.port;
     debug("Listening on " + bind);
 }
+var io = require('socket.io').listen(server);
+Socketio_1.default.initialize(io);

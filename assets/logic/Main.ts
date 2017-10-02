@@ -1,10 +1,13 @@
-class CMain {
+class MainClass {
 
+    public test(socket) {
 
+    }
 
 }
 
-let Main = new CMain;
+let Main = new MainClass;
 
-let url = 'http://localhost:2626';
+let io: any;
+let url = 'http://localhost:4000';
 let socket = io.connect(url);

@@ -1,8 +1,11 @@
-var CMain = /** @class */ (function () {
-    function CMain() {
+var MainClass = /** @class */ (function () {
+    function MainClass() {
     }
-    return CMain;
+    MainClass.prototype.test = function (socket) {
+    };
+    return MainClass;
 }());
-var Main = new CMain;
-var url = 'http://localhost:2626';
+var Main = new MainClass;
+var io;
+var url = 'http://localhost:4000';
 var socket = io.connect(url);

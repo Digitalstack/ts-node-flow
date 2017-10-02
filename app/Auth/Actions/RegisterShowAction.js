@@ -4,7 +4,10 @@ var RegisterShowAction = (function () {
     function RegisterShowAction() {
     }
     RegisterShowAction.prototype.invoke = function (req, res, next) {
-        //res.render('home/register', { pageTitle: 'Inscription', message: req.flash('signupMessage')});
+        var data = {
+            pageTitle: 'Inscription'
+        };
+        //res.render('home/register', data);
     };
     return RegisterShowAction;
 }());
