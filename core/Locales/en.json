@@ -1,0 +1,21 @@
+{
+	"site.description.normal": "Create and anime your community",
+	"site.description.more": "Kommunity is a discussion and sharing website where users can create their community and organize events.",
+	"read.more": "Read more",
+	"signup": "Sign up",
+	"signin": "Sign in",
+	"username": "Username",
+	"email": "E-mail",
+	"password": "Password",
+	"passwordcf": "Password confirmation",
+	"tosignup": "Sign up",
+	"rUsernameEmpty": "Empty username field",
+	"rUsernameAlpha": "Invalid username",
+	"rEmailEmpty": "Empty email field",
+	"rEmail": "Invalid email",
+	"rPasswordEmpty": "Empty password field",
+	"rPassportLength": "Password too short",
+	"rPasswordEq": "Incorrect confirmation password",
+	"rEmailArleadyTaken": "Email already taken",
+	"rUsernameArleadyTaken": "Username already taken"
+}

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var DataAccess_1 = require("./DataAccess");
-var Model = (function () {
+var Model = /** @class */ (function () {
     function Model(table) {
         this.table = table;
     }

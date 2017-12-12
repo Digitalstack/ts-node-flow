@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var View = (function () {
+var View = /** @class */ (function () {
     function View() {
     }
     View.prototype.initialize = function (app, path) {

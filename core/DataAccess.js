@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mysql = require("mysql");
-var DataAccess = (function () {
+var DataAccess = /** @class */ (function () {
     function DataAccess() {
         this.initialize();
         this.connection;

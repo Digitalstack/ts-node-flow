@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Socketio = (function () {
+var Socketio = /** @class */ (function () {
     function Socketio() {
     }
     Socketio.prototype.initialize = function (io) {

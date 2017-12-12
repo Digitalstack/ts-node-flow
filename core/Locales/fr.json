@@ -1,0 +1,21 @@
+{
+	"site.description.normal": "Créer et anime ta commaunté",
+	"site.description.more": "Kommunity est un site web communautaire de discussion et partage, dans lequel les utilisateurs peuvent créer leur communauté et organiser des événements.",
+	"read.more": "En savoir plus",
+	"signup": "Inscription",
+	"signin": "Connexion",
+	"username": "Pseudonyme",
+	"email": "E-mail",
+	"password": "Mot de passe",
+	"passwordcf": "Confirmation du mot de passe",
+	"tosignup": "S'enregister",
+	"rUsernameEmpty": "Champs pseudonyme vide",
+	"rUsernameAlpha": "Pseudonyme invalide",
+	"rEmailEmpty": "Champs email vide",
+	"rEmail": "Email invalide",
+	"rPasswordEmpty": "Champs mot de passe vide",
+	"rPassportLength": "Mot de passe trop court",
+	"rPasswordEq": "Mot de passe de confirmation incorrect",
+	"rEmailArleadyTaken": "Email déjà utilisé",
+	"rUsernameArleadyTaken": "Pseudonyme déjà utilisé"
+}

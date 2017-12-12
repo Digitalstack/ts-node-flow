@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var SocketEvents = (function () {
+var SocketEvents = /** @class */ (function () {
     function SocketEvents() {
     }
     return SocketEvents;

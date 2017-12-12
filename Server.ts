@@ -1,7 +1,7 @@
-///<reference path="node_modules/@types/ejs/index.d.ts"/>
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
+import * as csrf from 'csurf';
 import * as compression from 'compression';
 import * as logger from 'morgan';
 import * as helmet from 'helmet';
@@ -9,7 +9,8 @@ import * as cors from 'cors';
 import * as path from 'path';
 import * as expressValidator from 'express-validator';
 import * as sassMiddleware from 'node-sass-middleware';
-let session = require('express-session');
+import * as i18n from 'i18n';
+import * as session from 'express-session';
 import * as passport from 'passport';
 import * as flash from 'connect-flash';
 let LocalStrategy = require('passport').Strategy;
@@ -20,6 +21,7 @@ import View from "./core/View";
 import PassportConfig from './core/Passport';
 import Auth from './core/Auth';
 import Routes from "./app/Routes";
+import I18n from './core/i18n';
 import server = require("socket.io");
 
 // Process ENV
@@ -47,6 +49,7 @@ class Server {
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
         this.app.use(cookieParser());
+        this.app.use(csrf({ cookie: true }));
         this.app.use(expressValidator());
         this.app.use(sassMiddleware({
             src: path.join(__dirname, 'assets'),
@@ -59,7 +62,6 @@ class Server {
         this.app.use(compression());
         this.app.use(helmet());
         this.app.use(cors());
-
         this.app.use(session({
             secret: 'redbeardisthebest',
             resave: true,
@@ -68,6 +70,8 @@ class Server {
         this.app.use(passport.initialize());
         this.app.use(passport.session());
         this.app.use(flash());
+        this.app.use(i18n.init);
+        I18n.configure(i18n);
 
 
         // Cors

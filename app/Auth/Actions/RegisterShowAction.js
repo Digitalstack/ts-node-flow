@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var RegisterShowAction = (function () {
+var RegisterShowAction = /** @class */ (function () {
     function RegisterShowAction() {
     }
     RegisterShowAction.prototype.invoke = function (req, res, next) {

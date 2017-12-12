@@ -1,22 +1,75 @@
 <% include ../partials/header.ejs %>
 
-<div class="container">
+<div class="landing">
 
-    <div class="page-title">Inscription</div>
+    <div>
+        <div>
+            <div style="position: absolute; bottom: 0; ">
+                <img src="/images/image_bottom_01.png" class="landing-bottom" alt="">
+            </div>
+        </div>
+    </div>
+    <!--<img src="/images/image_people_02.png" class="landing-people" alt="">-->
 
-    <% if(typeof message !== 'undefined') {
-    if (message.length > 0) { %>
-    <div class="alert alert-danger"><%= message %></div>
-    <% }
-    } %>
+    <div class="landing-auth grid">
 
-    <form action="register" method="post">
-        <input type="text" placeholder="Pseudonyme" name="username" class="field">
-        <input type="email" placeholder="Adresse email" name="email" class="field">
-        <input type="password" placeholder="Mot de passe" name="password" class="field">
-        <input type="password" placeholder="Repéter le mot de passe" name="password_cf" class="field">
-        <button class="button">S'inscrire</button>
-    </form>
+        <div class="column small-12 medium-6">
+            <img src="/images/logo_big_type.png" alt="" class="landing-logo">
+            <div class="landing-presentation">
+                <h1><%= __('site.description.normal') %></h1>
+                <p><%= __('site.description.more') %></p>
+                <div class="button button-rounded button-landing"><%= __('read.more') %></div>
+            </div>
+        </div>
+
+        <div class="landing-auth-container column small-12 medium-6">
+            <div class="landing-auth-box">
+                <div class="landing-auth-menu">
+                    <div class="landing-auth-option selected"><%= __('signup') %></div>
+                    <div class="landing-auth-option"><%= __('signin') %></div>
+                </div>
+                <div class="landing-auth-content">
+                    <div>
+                        <div>
+                            <% if(errors.length > 0) { %>
+                            <div class="landing-auth-catch">
+                                <div>
+                                    <% for(var i = 0; i < errors.length; i++) { %>
+                                        <li><%= __(errors[i].msg) %></li>
+                                   <% } %>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <form action="signup" method="post">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <input type="text" placeholder="<%= __('username') %>" name="username" class="field" value="<%= req.body.username %>">
+                                                <input type="email" placeholder="<%= __('email') %>" name="email" class="field" value="<%= req.body.email %>">
+                                                <input type="password" placeholder="<%= __('password') %>" name="password" class="field" value="<%= req.body.password %>">
+                                                <input type="password" placeholder="<%= __('passwordcf') %>" name="passwordcf" class="field" value="">
+                                                <button class="button button-base"><%= __('tosignup') %></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-footer">
+        <div>
+            &copy;2017 Kommunity
+        </div>
+    </div>
 
 </div>
 

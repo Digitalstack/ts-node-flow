@@ -5,7 +5,7 @@ var debug = require("debug");
 var Server_1 = require("./Server");
 var Socketio_1 = require("./app/Socketio");
 debug('ts-express:server');
-var port = normalizePort(process.env.PORT || 4000);
+var port = normalizePort(process.env.PORT || 4001);
 Server_1.default.set('port', port);
 console.log("Server listening on port " + port);
 var server = http.createServer(Server_1.default);

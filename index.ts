@@ -6,7 +6,7 @@ import Socket from './app/Socketio';
 
 debug('ts-express:server');
 
-const port = normalizePort(process.env.PORT || 4000);
+const port = normalizePort(process.env.PORT || 4001);
 Server.set('port', port);
 
 console.log(`Server listening on port ${port}`);

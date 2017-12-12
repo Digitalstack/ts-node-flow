@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-var AuthController = (function () {
+var AuthController = /** @class */ (function () {
     function AuthController() {
         this.router = express_1.Router();
         this.routes;

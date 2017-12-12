@@ -7,5 +7,5 @@ var MainClass = /** @class */ (function () {
 }());
 var Main = new MainClass;
 var io;
-var url = 'http://localhost:4000';
+var url = 'http://localhost:4001';
 var socket = io.connect(url);

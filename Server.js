@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-///<reference path="node_modules/@types/ejs/index.d.ts"/>
 var express = require("express");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
+var csrf = require("csurf");
 var compression = require("compression");
 var logger = require("morgan");
 var helmet = require("helmet");
@@ -11,7 +11,8 @@ var cors = require("cors");
 var path = require("path");
 var expressValidator = require("express-validator");
 var sassMiddleware = require("node-sass-middleware");
-var session = require('express-session');
+var i18n = require("i18n");
+var session = require("express-session");
 var passport = require("passport");
 var flash = require("connect-flash");
 var LocalStrategy = require('passport').Strategy;
@@ -21,9 +22,10 @@ var View_1 = require("./core/View");
 var Passport_1 = require("./core/Passport");
 var Auth_1 = require("./core/Auth");
 var Routes_1 = require("./app/Routes");
+var i18n_1 = require("./core/i18n");
 // Process ENV
 process.env.BASE = __dirname + '/';
-var Server = (function () {
+var Server = /** @class */ (function () {
     function Server() {
         this.app = express();
         this.config();
@@ -38,6 +40,7 @@ var Server = (function () {
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
         this.app.use(cookieParser());
+        this.app.use(csrf({ cookie: true }));
         this.app.use(expressValidator());
         this.app.use(sassMiddleware({
             src: path.join(__dirname, 'assets'),
@@ -58,6 +61,8 @@ var Server = (function () {
         this.app.use(passport.initialize());
         this.app.use(passport.session());
         this.app.use(flash());
+        this.app.use(i18n.init);
+        i18n_1.default.configure(i18n);
         // Cors
         this.app.use(function (req, res, next) {
             res.header('Access-Control-Allow-Origin', 'http://localhost:4000');

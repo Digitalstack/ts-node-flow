@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var ShowAction_1 = require("./Actions/ShowAction");
-var HomeController = (function () {
+var HomeController = /** @class */ (function () {
     function HomeController() {
         this.router = express_1.Router();
         this.routes;

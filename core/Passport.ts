@@ -13,12 +13,14 @@ class PassportConfig {
 
     public initialize(passport) {
 
-        passport.serializeUser(function(user, done) {
+        console.log('Passport initialization')
+
+        passport.serializeUser(function (user, done) {
             done(null, user);
         });
 
-        passport.deserializeUser(function(id, done) {
-            UserModel.findBy('id', id, function(err, res) {
+        passport.deserializeUser(function (id, done) {
+            UserModel.findBy('id', id, function (err, res) {
                 done(err, res);
             });
         });
@@ -26,40 +28,43 @@ class PassportConfig {
         passport.use('local-signup', new LocalStrategy({
                 passReqToCallback: true
             },
-            function(req, email, password, done) {
+            function (req, email, password, done) {
 
-                //process.nextTick(function() {
+                console.log('local signup')
 
-                UserModel.findBy('email', req.body.email, function(err, res) {
-                    if (err)
-                        return done(err);
+                process.nextTick(function () {
 
-                    if (res) {
-                        console.log('Email already taken')
-                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                    } else {
+                    UserModel.findBy('email', req.body.email, function (err, res) {
+                        if (err)
+                            return done(err);
 
-                        var userData = {
-                            username: req.body.username,
-                            email: req.body.email,
-                            avatar: 'default.png',
-                            password: 'test',
-                            created_at: Datetime.getDateTime()
-                        };
+                        if (res) {
+                            console.log('Email already taken')
+                            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                        } else {
 
-                        DB.connection.query('INSERT INTO users SET ?',[userData],function(err, res) {
-                            let userID = res.id;
+                            var userData = {
+                                username: req.body.username,
+                                email: req.body.email,
+                                avatar: 'default.png',
+                                password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
+                                created_at: Datetime.getDateTime()
+                            };
 
-                            return done(null, userID);
-                        });
+                            DB.connection.query('INSERT INTO users SET ?', [userData], function (err, res) {
+                                let userID = res.id;
+                                
+                                return done(null, userID);
+                            });
 
-                    }
+                        }
+
+                    });
 
                 });
 
-                //});
-
-            }));
+            })
+        );
 
     }
 
